@@ -1,11 +1,14 @@
+import { Sidebar, Main } from './assets/components/assets'
 import React from 'react'
 
 const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+    <Sidebar />
+    <Main />
+    </>
   )
 }
 
 export default App
+

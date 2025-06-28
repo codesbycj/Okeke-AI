@@ -11,7 +11,7 @@ export const Main = () => {
     loading,
     resultData,
     setInput,
-    input,
+    input, 
   } = useContext(Context);
 
   return (
@@ -62,7 +62,7 @@ export const Main = () => {
         ) : (
           <div className="result">
             <div className="resultTitle">
-              <img src={assets.avatar} alt="" srcset="" />
+              <img src={assets.avatar} alt="" />
               <p>{recentPrompt}</p>
             </div>
             <div className="resultData">
@@ -74,7 +74,7 @@ export const Main = () => {
                   <hr />
                 </div>
               ) : (
-                <p>{resultData}</p>
+                <p dangerouslySetInnerHTML={{__html: resultData}}></p>
               )}
             </div>
           </div>

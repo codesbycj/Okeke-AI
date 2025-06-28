@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets";
+import { Context } from "../../../context/context";
 
 export const Sidebar = () => {
   const [expand, setExpand] = useState(false);
 
+  const { onSent, previousPrompt, input, setRecentPrompt } =
+    useContext(Context);
+
   const handleExpand = () => {
-    console.log('colo');
+    console.log("colo");
     if (!expand) {
-      setExpand(true)
+      setExpand(true);
     } else {
       setExpand(false);
     }
-  }
+  };
 
   return (
     <div className="sidebar">
       <div className="top">
-        <img src={assets.menu_icon} className={expand ? 'menu' : 'colorBlack'} alt="" onClick={handleExpand}/>
+        <img
+          src={assets.menu_icon}
+          className={expand ? "menu" : "colorBlack"}
+          alt=""
+          onClick={handleExpand}
+        />
         <div className="newChat">
           <img src={assets.plus_icon} alt="" />
           {expand ? <p>New Chat</p> : null}
@@ -25,16 +34,24 @@ export const Sidebar = () => {
 
         <div className="recent">
           <p className="recentTitle"> Recent </p>
-          <div className="recentEntry">
-            <img src={assets.message_icon} alt=""/>
-            {expand ? <p>What is react ... </p> : null}
-          </div>
+    
+          {Array.isArray(previousPrompt) &&
+            previousPrompt.map((item, index) => {
+              let shortWord = item.length > 7 ? item.slice(0, 7) : word;
+
+              return (
+                <div className="recentEntry" key={index}>
+                  <img src={assets.message_icon} alt="" />
+                  {expand ? <p>{shortWord} ... </p> : null}
+                </div>
+              );
+            })}
         </div>
       </div>
 
       <div className="bottom">
         <div className="bottomItem recentEntry">
-          <img src={assets.question_icon} alt=""/>
+          <img src={assets.question_icon} alt="" />
           {expand ? <p>Help & Support</p> : null}
         </div>
       </div>

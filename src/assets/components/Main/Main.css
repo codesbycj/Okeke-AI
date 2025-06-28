@@ -1,121 +1,181 @@
 .main {
-    flex: 1;
-    min-height: 1;
-    padding-bottom: 15vh;
-    position: relative;
+  flex: 1;
+  min-height: 1;
+  padding-bottom: 15vh;
+  position: relative;
 }
 
 .main .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  padding: 20px;
+  color: #585858;
+}
+
+.nav .logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 22px;
-    padding: 20px;
-    color: #585858;
+}
+
+.nav .logo img {
+    width: 100px;
+    margin-top: -1rem;
+    margin-left: -1.5rem;
+}
+
+.main .nav h1 {
+  background: -webkit-linear-gradient(45deg, #f974fb, #3314fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main img {
-    border-radius: 50%;
-    width: 40px;
+  border-radius: 50%;
+  width: 40px;
 }
 
 .mainContainer {
-    max-width: 900px;
-    margin: auto;
+  max-width: 900px;
+  margin: auto;
 }
 
 .greet {
-    margin: 50px 0;
-    font-size: 56px;
-    color: #c4c7c5;
-    font-weight: 500;
-    padding: 20px;
+  margin: 50px 0;
+  font-size: 56px;
+  color: #c4c7c5;
+  font-weight: 500;
+  padding: 20px;
 }
 
 .greet span {
-    background: -webkit-linear-gradient(16deg, #000000, #46ff6e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(16deg, #000000, #46ff6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: auto;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: auto;
+  padding: 20px;
 }
 
 .cards .card {
-    height: 200px;
-    padding: 15px;
-    background-color: #f0f4f9;
-    border-radius: 10px;
-    position: relative;
-cursor: pointer;
+  height: 200px;
+  padding: 15px;
+  background-color: #f0f4f9;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
 }
 
 .card img {
-    width: 35px;
-    padding: 5px;
-    position: absolute;
-    border-radius: 20px;
-    background-color: white;
-    bottom: 10px;
-    right: 10px;
+  width: 35px;
+  padding: 5px;
+  position: absolute;
+  border-radius: 20px;
+  background-color: white;
+  bottom: 10px;
+  right: 10px;
 }
 
 .card p {
-    color: #585858;
-    font-size: 17px;
+  color: #585858;
+  font-size: 17px;
 }
 
 .card:hover {
-    background-color: #dfe4ea;
+  background-color: #dfe4ea;
 }
 
 .mainBottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    max-width: 900px;
-    padding: 0px 20px;
-    margin: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 900px;
+  padding: 0px 20px;
+  margin: auto;
 }
 
 .searchBox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    background-color: #f0f4f9;
-    padding: 10px 20px;
-    border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #f0f4f9;
+  padding: 10px 20px;
+  border-radius: 50px;
 }
 
 .searchBox img {
-    width: 24px;
-    cursor: pointer;
+  width: 24px;
+  cursor: pointer;
 }
 
 .searchBox input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 8px;
-    font-size: 18px;
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 18px;
 }
 
 .searchBox .below {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .main .bottomInfo {
-    font-size: 13px;
-    margin: 15px auto;
-    text-align: center;
-    font-weight: 500;
+  font-size: 13px;
+  margin: 15px auto;
+  text-align: center;
+  font-weight: 500;
+}
+
+.result {
+  padding: 0px 5%;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.resultTitle {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.result img {
+  width: 40px;
+}
+
+.resultData {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loader hr {
+  border-radius: 4px;
+  background-color: #f6f7f8;
+  border: none;
+  background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+  background-size: 800px 50px;
+  height: 20px;
 }

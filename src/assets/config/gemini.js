@@ -29,9 +29,13 @@ async function main(prompt) {
     contents,
   });
   let fileIndex = 0;
+  let fullResponse = ''
   for await (const chunk of response) {
     console.log(chunk.text);
+    fullResponse += chunk.text;
   }
+
+  return fullResponse;
 }
 
 export default main;

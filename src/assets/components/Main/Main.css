@@ -1,10 +1,13 @@
 .main {
   flex: 1;
-  min-height: 1;
+  min-height: 100vh;
   padding-bottom: 15vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Top Nav */
 .main .nav {
   display: flex;
   align-items: center;
@@ -15,14 +18,14 @@
 }
 
 .nav .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav .logo img {
-    width: 100px;
-    margin-top: -1rem;
-    margin-left: -1.5rem;
+  width: 100px;
+  margin-top: -1rem;
+  margin-left: -1.5rem;
 }
 
 .main .nav h1 {
@@ -36,11 +39,16 @@
   width: 40px;
 }
 
+/* Container */
 .mainContainer {
+  flex: 1;
   max-width: 900px;
   margin: auto;
+  width: 100%;
+  padding-bottom: 120px; /* prevent overlap with input */
 }
 
+/* Greeting */
 .greet {
   margin: 50px 0;
   font-size: 56px;
@@ -55,6 +63,7 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -91,13 +100,18 @@
   background-color: #dfe4ea;
 }
 
+/* Bottom input */
 .mainBottom {
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   max-width: 900px;
-  padding: 0px 20px;
   margin: auto;
+  padding: 0px 20px 15px;
+  background: white;
+  z-index: 10;
 }
 
 .searchBox {
@@ -132,15 +146,17 @@
 
 .main .bottomInfo {
   font-size: 13px;
-  margin: 15px auto;
+  margin: 10px auto 0;
   text-align: center;
   font-weight: 500;
+  color: #666;
 }
 
+/* Result */
 .result {
   padding: 0px 5%;
   max-height: 70vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .result::-webkit-scrollbar {
@@ -164,6 +180,13 @@
   gap: 20px;
 }
 
+.resultData p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* Loader */
 .loader {
   width: 100%;
   display: flex;
@@ -182,18 +205,43 @@
 }
 
 @keyframes loader {
-    0% {
-        background-position: -800px 0px;
-    }
-
-    100% {
-        background-position: 800px 0px;
-    }
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
 }
 
-.resultData p {
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.8;
+/* 🔥 Responsive Breakpoints like Gemini clone */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .greet {
+    font-size: 42px;
+  }
 }
 
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .greet {
+    font-size: 28px;
+    text-align: center;
+  }
+  .searchBox {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    border-radius: 20px;
+  }
+  .searchBox input {
+    font-size: 16px;
+  }
+  .resultData {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

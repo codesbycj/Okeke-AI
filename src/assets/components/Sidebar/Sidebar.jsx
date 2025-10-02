@@ -6,8 +6,13 @@ import { Context } from "../../../context/context";
 export const Sidebar = () => {
   const [expand, setExpand] = useState(false);
 
-  const { onSent, previousPrompt, input, setRecentPrompt } =
+  const { onSent, previousPrompt, input, setRecentPrompt, newChat } =
     useContext(Context);
+
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt)
+    await onSent(prompt);
+  };
 
   const handleExpand = () => {
     console.log("colo");
@@ -27,20 +32,20 @@ export const Sidebar = () => {
           alt=""
           onClick={handleExpand}
         />
-        <div className="newChat">
+        <div className="newChat" onClick={() => newChat()}>
           <img src={assets.plus_icon} alt="" />
           {expand ? <p>New Chat</p> : null}
         </div>
 
         <div className="recent">
           <p className="recentTitle"> Recent </p>
-    
+
           {Array.isArray(previousPrompt) &&
             previousPrompt.map((item, index) => {
               let shortWord = item.length > 7 ? item.slice(0, 7) : word;
 
               return (
-                <div className="recentEntry" key={index}>
+                <div className="recentEntry" key={index} onClick={() => loadPrompt(item)}>
                   <img src={assets.message_icon} alt="" />
                   {expand ? <p>{shortWord} ... </p> : null}
                 </div>
